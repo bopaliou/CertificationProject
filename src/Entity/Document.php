@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\DocumentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\DocumentRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ORM\Entity(repositoryClass=DocumentRepository::class)
  */
+#[ApiResource()]
 class Document
 {
     /**
@@ -46,6 +50,21 @@ class Document
      * @ORM\Column(type="boolean")
      */
     private $etat;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="document")
+     */
+    private $images;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="documents")
+     */
+    private $user;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +139,48 @@ class Document
     public function setEtat(bool $etat): self
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setDocument($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getDocument() === $this) {
+                $image->setDocument(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
