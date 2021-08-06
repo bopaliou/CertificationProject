@@ -13,21 +13,17 @@ services:
             # "3306" to "3306:3306". Where the first port is exposed to the host and the second is the container port.
             # See https://docs.docker.com/compose/compose-file/#ports for more information.
             - '3306'
-        networks:
-            mynet:
     
     phpmyadmin:
         image: phpmyadmin:latest
         environment:
-            PMA_HOST: database
+        PMA_HOST: database
         volumes:
             - phpmyadmin_data:/var/www/html/
         networks:
             - mynet
         depends_on:
             - mariadb
-        ports: 
-            - '8080:80'
 networks:
   mynet:
 

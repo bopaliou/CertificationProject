@@ -14,7 +14,7 @@ services:
             # See https://docs.docker.com/compose/compose-file/#ports for more information.
             - '3306'
         networks:
-            mynet:
+                mynet:
     
     phpmyadmin:
         image: phpmyadmin:latest
@@ -26,8 +26,6 @@ services:
             - mynet
         depends_on:
             - mariadb
-        ports: 
-            - '8080:80'
 networks:
   mynet:
 

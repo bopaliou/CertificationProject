@@ -26,8 +26,6 @@ services:
             - mynet
         depends_on:
             - mariadb
-        ports: 
-            - '8080:80'
 networks:
   mynet:
 
