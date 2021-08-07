@@ -24,24 +24,14 @@ class UserCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        yield IdField::new('id');
+       
         yield EmailField::new('email');
         yield TextField::new('password');
         yield ArrayField::new('roles');
         yield TextField::new('nom');
         yield TextField::new('prenom');
         yield TextField::new('adresse');
-        $dateNaissance = DateTimeField::new('dateNaissance')->setFormTypeOptions([
-                        'html5' => true,
-                        'years' => range(date('Y'), date('Y') + 5),
-                        'widget' => 'single_text',
-                    ]);
-                    if (Crud::PAGE_EDIT === $pageName) {
-                        yield $dateNaissance->setFormTypeOption('enabled', true);
-                    } else {
-                        yield $dateNaissance;
-                    }
-        
+        yield DateField::new('dateNaissance');
         yield TextField::new('lieuNaissance');
         yield TextField::new('telephone');
         

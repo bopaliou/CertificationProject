@@ -3,8 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Image;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -20,9 +22,8 @@ class ImageCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        yield IdField::new('url');
-        yield AssociationField::new('document');
-        yield TextField::new('url');
+        yield IdField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating();
+        yield ImageField::new('url')->setBasePath('/uploads/images')->onlyOnIndex();
         yield IntegerField::new('taille');
         yield TextareaField::new('description');
     }
