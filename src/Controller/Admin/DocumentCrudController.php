@@ -32,6 +32,7 @@ class DocumentCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield AssociationField::new('user');
+        yield AssociationField::new('images');
         yield TextField::new('type');
         yield IntegerField::new('Numero');
         yield DateField::new('dateEnregistrement');
