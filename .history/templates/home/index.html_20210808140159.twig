@@ -2,13 +2,32 @@
 
 
 {% block body %}
-
 	<body class="is-preload homepage">
-	 {% include "header/_header.html.twig" %}
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				
+				<div id="header-wrapper">
+					<header id="header" class="container">
+
+						<!-- Logo -->
+							<div id="logo">
+								<h1><a href="index.html">Verti</a></h1>
+								<span>by HTML5 UP</span>
+							</div>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="current"><a href="{{ path('home') }}">Acceuil</a></li>
+									<li><a href="#">Documents</a></li>
+									<li><a href="right-sidebar.html">Annonces</a></li>
+									<li><a href="{{path('login'">Connexion</a></li>
+                                    <li><a href="#">Créer un compte</a></li>
+								</ul>
+							</nav>
+
+					</header>
+				</div>
 
 			<!-- Banner -->
 				<div id="banner-wrapper">
