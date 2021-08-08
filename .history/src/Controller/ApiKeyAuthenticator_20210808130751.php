@@ -1,0 +1,3 @@
+class ApiKeyController extends AbstractGuardAuthenticator{
+    
+}
