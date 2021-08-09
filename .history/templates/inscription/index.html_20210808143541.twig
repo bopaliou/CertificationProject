@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    <div class="container" style="margin-top: 3%">
+          <div class="jumbotron">
+          <h1 style="margin-bottom: 4%">Veuillez-vous inscrire!</h1>
+        <div class="form-group">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-4">{{ form_row(form.nom,{'attr':{'placeholder': 'Saisissez le nom'}}) }}</div>
+                <div class="col-md-4">{{ form_row(form.prenom,{'attr':{'placeholder': 'Saisissez le prenom'}}) }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">{{ form_row(form.adresse,{'attr':{'placeholder': 'Saisissez adresse'}}) }}</div>
+                <div class="col-md-4">{{ form_row(form.telephone,{'attr':{'placeholder': 'Saisissez le telephone'}}) }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">{{ form_row(form.dateNaissance,{'label': 'Date de Naissance'}) }}</div>
+                <div class="col-md-4">{{ form_row(form.lieuNaissance,{'attr':{'placeholder': 'Saisissez le lieux de naissance'}}) }}</div>
+                
+                
+            </div>
+            <div class="row">
+                <div class="col-md-4">{{ form_row(form.email,{'attr':{'placeholder': 'Saisissez l\'email'}}) }}</div>
+                <div class="col-md-4">{{ form_row(form.password,{'attr':{'placeholder': 'Saisissez le mot de passe'}}) }}</div>
+                
+            </div>
+
+            <button type="submit" class="btn btn-success" style="margin-top: 2%; margin-bottom: 3% ">S'inscrire</button>
+            {{ form_end(form)}}
+        </div>
+ 
+{% endblock %}
