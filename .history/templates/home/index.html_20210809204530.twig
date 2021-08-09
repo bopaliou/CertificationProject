@@ -11,17 +11,25 @@
 				
 					<div class="col-md-3 mt-4" style="margin:20px;">
 					{% for document in documents %}
+					
+						
 						<div class="card" style="width: 18rem;">
 							<img src="{{ vich_uploader_asset(image, 'imageFile') }}" class="rounded">
 							<div class="card-body">
-								<h5 class="card-title">{{document.type}}</h5>
+								<h5 class="card-title">{{document.images}}</h5>
 								Prénom: <h5 class="card-title">{{document.user.prenom}}</h5>
 								Nom: <h5 class="card-title">{{document.user.nom}}</h5>
 								<a href="#" class="btn btn-primary">réclamer</a>
 							</div>
 						</div>
+							
+					
 						{% endfor %}
+					
 					</div>
+					
+			
+				
 			{% endfor %}
 		</div>
 	 </div>

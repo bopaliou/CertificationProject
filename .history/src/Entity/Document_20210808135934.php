@@ -186,6 +186,6 @@ class Document
     }
     public function __toString(): string
     {
-        return $this->user;
+        return $this->type;
     }
 }

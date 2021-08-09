@@ -5,12 +5,14 @@
 
 	<body class="is-preload homepage">
 	 {% include "header/_header.html.twig" %}
-	 <div class="container mt-3" >
+	 <div class="container mt-2" >
 			<div class="row" >
 			{% for image in images %}
 				
 					<div class="col-md-3 mt-4" style="margin:20px;">
 					{% for document in documents %}
+					
+						
 						<div class="card" style="width: 18rem;">
 							<img src="{{ vich_uploader_asset(image, 'imageFile') }}" class="rounded">
 							<div class="card-body">
@@ -20,8 +22,14 @@
 								<a href="#" class="btn btn-primary">réclamer</a>
 							</div>
 						</div>
+							
+					
 						{% endfor %}
+					
 					</div>
+					
+			
+				
 			{% endfor %}
 		</div>
 	 </div>

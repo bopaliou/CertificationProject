@@ -26,7 +26,7 @@ class ImageCrudController extends AbstractCrudController
         yield ImageField::new('url')->setBasePath('/uploads/images')->onlyOnIndex();
         yield IntegerField::new('taille');
         yield TextareaField::new('description');
-        yield AssociationField::new('document');
+        yield AssociationField::new('user');
     }
     
 }

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+	<body class="is-preload homepage">
+	 {% include "header/_header.html.twig" %}
+	 <div class="container mt-4" >
+			<div class="row" >
+			{% for image in images %}
+				
+					<div class="col-md-4" >
+						<img src="{{ vich_uploader_asset(image, 'imageFile') }}" class="rounded">
+					</div>
+			
+				
+			{% endfor %}
+		</div>
+	 </div>
+		
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+{% endblock %}
