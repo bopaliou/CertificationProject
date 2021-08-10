@@ -1,6 +1,4 @@
-{% extends "base.html.twig" %}
-{% block body %}
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!-- Navigation
     ==========================================-->
 <nav id="menu" class="navbar navbar-default navbar-fixed-top">
@@ -16,8 +14,8 @@
         <li><a href="{{ path('home') }}" class="page-scroll">Acceuil</a></li>
         <li><a href="#" class="page-scroll">Documents</a></li>
         <li><a href="#" class="page-scroll">Annonces</a></li>
-        <li><a href="{{ path('app_login') }}" class="page-scroll">Connexion</a></li>
-        <li><a href="{{  path('inscription')}}" class="page-scroll">Créer un compte</a></li>
+        <li><a href="#team" class="page-scroll">Connexion</a></li>
+        <li><a href="{{ path('inscription')}}" class="page-scroll">Créer un compte</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -38,4 +36,3 @@
     </div>
   </div>
 </header>
-{% endblock %}
